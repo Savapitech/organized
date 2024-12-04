@@ -16,8 +16,8 @@ void *my_realloc(void *ptr, size_t actual_size, size_t new_size)
     if (!actual_size && !new_size)
         return NULL;
     new = malloc(new_size);
-    if (actual_size > 0 && new_size > 0)
-        my_memcpy(new, ptr, actual_size);
-    free(ptr);
-    return new;
+    if (new == NULL)
+        return NULL;
+    my_memcpy(new, ptr, actual_size);
+    return (free(ptr), new);
 }

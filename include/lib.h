@@ -69,4 +69,5 @@ void *my_realloc(void *, size_t, size_t);
 char *my_numstr(char *, int);
 void mini_qsort(char *, size_t, size_t,
     int compare(void const *, void const *));
+int my_pow(int, int);
 #endif /* LIB_H_ */
