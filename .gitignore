@@ -20,6 +20,7 @@ test
 *.out
 *.[od]
 *.cor
+valout
 
 # nix
 .direnv

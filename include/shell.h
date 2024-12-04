@@ -7,14 +7,12 @@
 
 #ifndef SHELL_H
     #define SHELL_H
+    #include "organized.h"
 
-// To be implemented
-int add(void *data, char **args);
-int del(void *data, char **args);
-int sort(void *data, char **args);
-int disp(void *data, char **args);
+int add(of_t *, char **);
+int del(of_t *, char **);
+int sort(of_t *, char **);
+int disp(of_t *, char **);
 
-// Already implemented
-int workshop_shell(void *data);
-
+int workshop_shell(void *);
 #endif /* SHELL_H */

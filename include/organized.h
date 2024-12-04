@@ -33,4 +33,5 @@ typedef struct {
 } of_t;
 
 int organized(void);
+int handle_realloc(of_t *);
 #endif /* ORGANIZED_H */
