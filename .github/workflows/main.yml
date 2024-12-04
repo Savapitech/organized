@@ -50,7 +50,7 @@ jobs:
         run: |
           nix run github:Sigmapitech/cs \
             --extra-experimental-features 'nix-command flakes' \
-            -- . --ignore-rules=C-G1
+            -- . --ignore-rules=C-O1
 
       - name: Build project
         run: |
