@@ -16,18 +16,18 @@ int handle_realloc(of_t *of)
 
     if (of->act_i == of->act_sz - 1) {
         new_ptr = my_realloc(of->om, (sizeof *of->om) * of->act_sz,
-            (sizeof *of->om) * my_pow(of->act_sz, 2));
+            (sizeof *of->om) * of->act_sz << 1);
         if (new_ptr == NULL)
             return ORG_FAILURE;
         of->om = new_ptr;
-        of->act_sz = my_pow(of->act_sz, 2);
+        of->act_sz = of->act_sz << 1;
     }
     return ORG_SUCCESS;
 }
 
 int organized(void)
 {
-    of_t of = { 0, .act_sz = 4 };
+    of_t of = { 0, .act_sz = 512 };
 
     of.om = malloc((sizeof *of.om) * of.act_sz);
     return workshop_shell(&of);
