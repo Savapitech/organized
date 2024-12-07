@@ -1,6 +1,6 @@
-va_start
-va_end
-va_arg
+open
+read
+write
+close
 malloc
 free
-write
