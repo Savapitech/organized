@@ -19,7 +19,7 @@ const char *TYPES[] = {
 
 int disp(of_t *of, char **args)
 {
-    for (size_t i = 0; i < of->act_sz; i++)
+    for (int i = of->act_i; i >= 0; i--)
         if (of->om[i].name && of->om[i].type != ORG_FAILURE &&
             of->om[i].id != -1) {
             my_printf("%s n°%01d - \"%s\"\n", TYPES[of->om[i].type],
