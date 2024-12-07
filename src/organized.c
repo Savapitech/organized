@@ -44,9 +44,5 @@ int organized(void)
         of.om[i].name = NULL;
     }
     result = workshop_shell(&of);
-#ifdef ORG_DEBUG
-    if (result == ORG_FAILURE)
-        my_printf("Organized error occured !\n");
-#endif
     return result;
 }
