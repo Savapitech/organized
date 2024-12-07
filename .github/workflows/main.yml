@@ -59,7 +59,7 @@ jobs:
       - name: Check for banned functions
         run: |
           nix run github:Dawoox/efc -- \
-            ./mysh \
+            ./organized \
             ./afunc.txt
 
   sync_repository:
