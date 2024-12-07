@@ -41,4 +41,4 @@ unit_tests
 *.pyc
 
 #tkt
-tests/tester_3000.c
+tests/generator.py
