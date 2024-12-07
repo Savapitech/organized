@@ -13,9 +13,10 @@ char *my_strpop(char *str, int size)
     int l = my_strlen(str);
     char *strr = malloc(l - size);
 
-    for (int i = 0; i < l - size; i++) {
+    if (!strr)
+        return NULL;
+    for (int i = 0; i < l - size; i++)
         strr[i] = str[i];
-    }
     strr[l - size] = '\0';
     return strr;
 }
