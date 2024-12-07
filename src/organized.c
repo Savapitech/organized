@@ -16,10 +16,15 @@ int handle_realloc(of_t *of)
 
     if (of->act_i == of->act_sz - 1) {
         new_ptr = my_realloc(of->om, (sizeof *of->om) * of->act_sz,
-            (sizeof *of->om) * of->act_sz << 1);
+            (sizeof *of->om) * (of->act_sz << 1));
         if (new_ptr == NULL)
             return ORG_FAILURE;
         of->om = new_ptr;
+        for (size_t i = of->act_sz; i < (of->act_sz << 1); i++) {
+            of->om[i].id = -1;
+            of->om[i].type = -1;
+            of->om[i].name = NULL;
+        }
         of->act_sz = of->act_sz << 1;
     }
     return ORG_SUCCESS;
@@ -28,7 +33,20 @@ int handle_realloc(of_t *of)
 int organized(void)
 {
     of_t of = { 0, .act_sz = 512 };
+    int result = 0;
 
     of.om = malloc((sizeof *of.om) * of.act_sz);
-    return workshop_shell(&of);
+    if (!of.om)
+            return ORG_FAILURE;
+    for (size_t i = 0; i < of.act_sz; i++) {
+        of.om[i].id = -1;
+        of.om[i].type = -1;
+        of.om[i].name = NULL;
+    }
+    result = workshop_shell(&of);
+#ifdef ORG_DEBUG
+    if (result == ORG_FAILURE)
+        my_printf("Organized error occured !\n");
+#endif
+    return result;
 }

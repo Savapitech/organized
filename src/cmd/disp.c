@@ -20,7 +20,8 @@ const char *TYPES[] = {
 int disp(of_t *of, char **args)
 {
     for (size_t i = 0; i < of->act_sz; i++)
-        if (of->om[i].name) {
+        if (of->om[i].name && of->om[i].type != ORG_FAILURE &&
+            of->om[i].id != -1) {
             my_printf("%s n°%01d - \"%s\"\n", TYPES[of->om[i].type],
                 of->om[i].id, of->om[i].name);
         }

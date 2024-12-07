@@ -21,7 +21,7 @@ typedef enum {
 } org_type_t;
 
 typedef struct {
-    uint32_t id;
+    int id;
     org_type_t type;
     char *name;
 } org_materials_t;
