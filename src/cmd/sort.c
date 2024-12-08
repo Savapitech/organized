@@ -32,7 +32,7 @@ int compare_type(org_materials_t const *a, org_materials_t const *b)
 int sort(of_t *of, char **args)
 {
     if (!args[0])
-        return ORG_FAILURE;
+        return (my_printf("NO args\n"), ORG_FAILURE);
     if (my_strcmp(args[0], "ID") == 0)
         mini_qsort((char *)of->om, of->act_i, sizeof *of->om,
             (__compar_fn_t)&compare_id);
@@ -42,5 +42,7 @@ int sort(of_t *of, char **args)
     if (my_strcmp(args[0], "TYPE") == 0)
         mini_qsort((char *)of->om, of->act_i, sizeof *of->om,
             (__compar_fn_t)&compare_type);
+    else
+        return ORG_FAILURE;
     return ORG_SUCCESS;
 }
