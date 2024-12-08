@@ -8,15 +8,6 @@
 #include "lib.h"
 #include "organized.h"
 
-static
-const char *TYPES[] = {
-    "ACTUATOR",
-    "DEVICE",
-    "PROCESSOR",
-    "SENSOR",
-    "WIRE"
-};
-
 int del(of_t *of, char **args)
 {
     int i;

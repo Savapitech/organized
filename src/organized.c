@@ -10,6 +10,14 @@
 #include "shell.h"
 #include <stdlib.h>
 
+const char *TYPES[] = {
+    "ACTUATOR",
+    "DEVICE",
+    "PROCESSOR",
+    "SENSOR",
+    "WIRE"
+};
+
 int handle_realloc(of_t *of)
 {
     org_materials_t *new_ptr;

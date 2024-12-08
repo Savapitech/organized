@@ -32,6 +32,9 @@ typedef struct {
     uint32_t act_i;
 } of_t;
 
+extern const char *TYPES[];
+
 int organized(void);
 int handle_realloc(of_t *);
+int get_type(char *);
 #endif /* ORGANIZED_H */

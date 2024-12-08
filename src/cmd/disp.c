@@ -8,15 +8,6 @@
 #include "organized.h"
 #include "lib.h"
 
-static
-const char *TYPES[] = {
-    "ACTUATOR",
-    "DEVICE",
-    "PROCESSOR",
-    "SENSOR",
-    "WIRE"
-};
-
 int disp(of_t *of, char **args)
 {
     for (int i = of->act_i; i >= 0; i--)

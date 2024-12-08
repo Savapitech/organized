@@ -8,16 +8,6 @@
 #include "lib.h"
 #include "organized.h"
 
-static
-const char *TYPES[] = {
-    "ACTUATOR",
-    "DEVICE",
-    "PROCESSOR",
-    "SENSOR",
-    "WIRE"
-};
-
-static
 int get_type(char *arg)
 {
     if (!my_strcmp("ACTUATOR", arg))
