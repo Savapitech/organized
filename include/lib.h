@@ -14,6 +14,16 @@
     #include "my.h"
     #define IDX_OF(array, i, mem_s) (array + ((i) * (mem_s)))
 
+typedef int (*compare_fn_t)(void const *, void const *, void *);
+
+typedef struct {
+    char *arr;
+    size_t size;
+    size_t mem_s;
+    compare_fn_t compare;
+    void *params;
+} miniqsort_t;
+
 int my_get_array_size(char **);
 int my_putchar(char);
 int my_isneg(int);
@@ -67,7 +77,6 @@ int my_str_isprintable(char *);
 void *my_memcpy(uint8_t *, uint8_t const *, size_t);
 void *my_realloc(void *, size_t, size_t);
 char *my_numstr(char *, int);
-void mini_qsort(char *, size_t, size_t,
-    int compare(void const *, void const *));
+void mini_qsort(miniqsort_t *);
 int my_pow(int, int);
 #endif /* LIB_H_ */

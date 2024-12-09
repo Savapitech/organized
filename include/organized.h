@@ -13,6 +13,7 @@
     #include <stdint.h>
 
 typedef enum {
+    INVALID = -1,
     ACTUATOR = 0,
     DEVICE = 1,
     PROCESSOR = 2,

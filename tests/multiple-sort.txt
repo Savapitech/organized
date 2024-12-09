@@ -1,0 +1,13 @@
+add WIRE a, WIRE b, WIRE c
+add ACTUATOR a, ACTUATOR b
+disp
+del 0
+add DEVICE a
+disp
+sort NAME -r
+add WIRE a, WIRE b, WIRE c
+add DEVICE a, DEVICE b
+sort TYPE -r NAME ID -r
+del 4
+disp
+exit

@@ -52,5 +52,6 @@ int organized(void)
         of.om[i].name = NULL;
     }
     result = workshop_shell(&of);
+    free(of.om);
     return result;
 }
