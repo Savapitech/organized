@@ -18,7 +18,9 @@ int del(of_t *of, char **args)
     id = my_getnbr(args[0]);
     if (!my_str_isnum(args[0]) || id < 0 || id > (int)of->act_sz)
         return ORG_FAILURE;
-    for (; of->om[i].id != id; i++);
+    for (; of->om[i].name != NULL && of->om[i].id != id; i++);
+    if (of->om[i].id == -1 || of->om[i].name == NULL)
+        return ORG_FAILURE;
     my_printf("%s n°%01d - \"%s\" deleted.\n", TYPES[of->om[i].type],
         of->om[i].id, of->om[i].name);
     of->om[i].id = -1;
