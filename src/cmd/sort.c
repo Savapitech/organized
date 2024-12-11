@@ -10,7 +10,7 @@
 
 static
 int compare_str(org_materials_t const *s1, org_materials_t const *s2,
-    void *params)
+    void *params __attribute__((unused)))
 {
     int i = 0;
 
@@ -22,7 +22,7 @@ int compare_str(org_materials_t const *s1, org_materials_t const *s2,
 
 static
 int compare_id(org_materials_t const *a, org_materials_t const *b,
-    void *params)
+    void *params __attribute__((unused)))
 {
     if (b->id == -1 || a->id == -1)
         return 0;
@@ -31,7 +31,7 @@ int compare_id(org_materials_t const *a, org_materials_t const *b,
 
 static
 int compare_type(org_materials_t const *a, org_materials_t const *b,
-    void *params)
+    void *params __attribute__((unused)))
 {
     if (b->type == INVALID || a->type == INVALID)
         return 0;
@@ -65,6 +65,9 @@ int sort(of_t *of, char **args)
     miniqsort_t mq;
 
     if (!args[0])
+        return ORG_FAILURE;
+    if (my_strcmp(args[0], "ID") && my_strcmp(args[0], "NAME") &&
+            my_strcmp(args[0], "TYPE"))
         return ORG_FAILURE;
     mq.arr = (char *)of->om;
     mq.size = of->act_i;
