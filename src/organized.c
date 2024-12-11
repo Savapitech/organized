@@ -38,6 +38,14 @@ int handle_realloc(of_t *of)
     return ORG_SUCCESS;
 }
 
+static
+void free_all(of_t *of)
+{
+    for (size_t i = 0; i < of->act_sz; i++)
+        if (of->om[i].name)
+            free(of->om[i].name);
+}
+
 int organized(void)
 {
     of_t of = { 0, .act_sz = 512 };
@@ -52,6 +60,7 @@ int organized(void)
         of.om[i].name = NULL;
     }
     result = workshop_shell(&of);
+    free_all(&of);
     free(of.om);
     return result;
 }
