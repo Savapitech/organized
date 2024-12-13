@@ -48,6 +48,8 @@ void my_str_to_word_a_print(char const *str, int len, int *word, char **dest)
     int i;
 
     dest[word[1]] = malloc(sizeof(char) * (len + 1));
+    if (dest[word[1]] == NULL)
+        return;
     for (i = 0; i < len; i++) {
         dest[word[1]][i] = str[i];
     }
@@ -64,6 +66,8 @@ char **my_str_to_word_array(char const *str)
 
     word[0] = my_check_number_of_words(str);
     dest = malloc(word[0] * sizeof(char *) + 1);
+    if (dest == NULL)
+        return NULL;
     for (int i = 0; str[i] != '\0'; i++) {
         if (is_alpha_num(str[i]) == 1) {
             i = my_str_to_word_array_len(&len_a, &len_b, str, i) - 1;
