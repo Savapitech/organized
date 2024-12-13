@@ -10,6 +10,8 @@
 
 int disp(of_t *of, char **args)
 {
+    if (args[0])
+        return ORG_FAILURE;
     for (int i = of->act_i; i >= 0; i--)
         if (of->om[i].name && of->om[i].type != ORG_FAILURE &&
             of->om[i].id != -1) {
